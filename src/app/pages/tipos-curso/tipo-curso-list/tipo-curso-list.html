@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Tipos de Curso</h2>
+    <a routerLink="/tipos-curso/nuevo" class="btn btn-primary">+ Nuevo</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of tipos">
+        <td>{{ t.idTipoCurso }}</td><td>{{ t.nombre }}</td><td>{{ t.descripcion }}</td>
+        <td>
+          <a [routerLink]="['/tipos-curso/editar', t.idTipoCurso]" class="btn btn-sm btn-warning me-2">Editar</a>
+          <button (click)="delete(t.idTipoCurso!)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

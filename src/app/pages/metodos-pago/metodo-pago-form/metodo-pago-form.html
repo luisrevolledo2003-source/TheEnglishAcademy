@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white"><h3>{{ id ? 'Editar' : 'Nuevo' }} Método de Pago</h3></div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3"><label class="form-label">Nombre</label><input type="text" class="form-control" formControlName="nombre"></div>
+        <div class="mb-3"><label class="form-label">Descripción</label><input type="text" class="form-control" formControlName="descripcion"></div>
+        <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Asistencias</h2>
+    <a routerLink="/asistencias/nuevo" class="btn btn-primary">+ Nueva</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr><th>ID</th><th>Estudiante</th><th>Curso</th><th>Fecha</th><th>Presente</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of asistencias">
+        <td>{{ a.idAsistencia }}</td>
+        <td>{{ a.estudiante?.nombre }} {{ a.estudiante?.apellido }}</td>
+        <td>{{ a.curso?.nombre }}</td>
+        <td>{{ a.fecha | date }}</td>
+        <td>{{ a.presente ? 'Sí' : 'No' }}</td>
+        <td>
+          <a [routerLink]="['/asistencias/editar', a.idAsistencia]" class="btn btn-sm btn-warning me-2">Editar</a>
+          <button (click)="delete(a.idAsistencia!)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

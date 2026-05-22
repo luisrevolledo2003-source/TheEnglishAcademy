@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white"><h3>{{ id ? 'Editar' : 'Nuevo' }} Pago</h3></div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label class="form-label">Estudiante</label>
+          <select class="form-select" formControlName="idEstudiante">
+            <option *ngFor="let e of estudiantes" [ngValue]="e.idEstudiante">{{ e.nombre }} {{ e.apellido }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Método de Pago</label>
+          <select class="form-select" formControlName="idMetodoPago">
+            <option *ngFor="let m of metodos" [ngValue]="m.idMetodoPago">{{ m.nombre }}</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label">Monto</label><input type="number" class="form-control" formControlName="monto"></div>
+        <div class="mb-3"><label class="form-label">Fecha</label><input type="date" class="form-control" formControlName="fechaPago"></div>
+        <div class="mb-3"><label class="form-label">Estado</label><input type="text" class="form-control" formControlName="estadoTransaccion" placeholder="Ej: Aprobado, Pendiente"></div>
+        <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+      </form>
+    </div>
+  </div>
+</div>

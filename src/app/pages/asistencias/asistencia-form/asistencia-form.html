@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white"><h3>{{ id ? 'Editar' : 'Nueva' }} Asistencia</h3></div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label class="form-label">Estudiante</label>
+          <select class="form-select" formControlName="idEstudiante">
+            <option *ngFor="let e of estudiantes" [ngValue]="e.idEstudiante">{{ e.nombre }} {{ e.apellido }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Curso</label>
+          <select class="form-select" formControlName="idCurso">
+            <option *ngFor="let c of cursos" [ngValue]="c.idCurso">{{ c.nombre }}</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label">Fecha</label><input type="date" class="form-control" formControlName="fecha"></div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" formControlName="presente" id="presente">
+          <label class="form-check-label" for="presente">Presente</label>
+        </div>
+        <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+      </form>
+    </div>
+  </div>
+</div>

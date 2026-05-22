@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Evaluaciones</h2>
+    <a routerLink="/evaluaciones/nuevo" class="btn btn-primary">+ Nueva</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr><th>ID</th><th>Estudiante</th><th>Nivel</th><th>Tipo</th><th>Calificación</th><th>Fecha</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ev of evaluaciones">
+        <td>{{ ev.idEvaluacion }}</td>
+        <td>{{ ev.estudiante?.nombre }} {{ ev.estudiante?.apellido }}</td>
+        <td>{{ ev.nivel?.descripcion }}</td>
+        <td>{{ ev.tipo }}</td>
+        <td>{{ ev.calificacion }}</td>
+        <td>{{ ev.fecha | date }}</td>
+        <td>
+          <a [routerLink]="['/evaluaciones/editar', ev.idEvaluacion]" class="btn btn-sm btn-warning me-2">Editar</a>
+          <button (click)="delete(ev.idEvaluacion!)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

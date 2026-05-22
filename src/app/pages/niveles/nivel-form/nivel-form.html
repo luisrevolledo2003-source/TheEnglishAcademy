@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h3>{{ id ? 'Editar' : 'Nuevo' }} Nivel</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="guardar()">
+        <div class="mb-3">
+          <label class="form-label">Código</label>
+          <input type="text" class="form-control" formControlName="codigo" placeholder="Ej: B1">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" formControlName="descripcion" placeholder="Ej: Intermedio">
+        </div>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+          <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

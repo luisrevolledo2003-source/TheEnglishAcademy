@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Cursos</h2>
+    <a routerLink="/cursos/nuevo" class="btn btn-primary">+ Nuevo curso</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Costo</th>
+        <th>Nivel</th>
+        <th>Tipo</th>
+        <th>Aula</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cursos">
+        <td>{{ c.idCurso }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.costo | currency }}</td>
+        <td>{{ c.nivel?.descripcion }}</td>
+        <td>{{ c.tipoCurso?.nombre }}</td>
+        <td>{{ c.aula?.nombre }}</td>
+        <td>
+          <a [routerLink]="['/cursos/editar', c.idCurso]" class="btn btn-sm btn-warning me-2">Editar</a>
+          <button (click)="deleteCurso(c.idCurso!)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

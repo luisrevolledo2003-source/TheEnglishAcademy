@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h3>{{ id ? 'Editar' : 'Nuevo' }} Curso</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="guardar()">
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del curso">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-control" formControlName="descripcion" placeholder="Descripción del curso"></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Costo</label>
+          <input type="number" class="form-control" formControlName="costo">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Duración en horas</label>
+          <input type="number" class="form-control" formControlName="duracionHoras">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nivel</label>
+          <select class="form-select" formControlName="idNivel">
+            <option [ngValue]="null">Seleccione un nivel</option>
+            <option *ngFor="let n of niveles" [ngValue]="n.idNivel">{{ n.descripcion }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tipo de Curso</label>
+          <select class="form-select" formControlName="idTipoCurso">
+            <option [ngValue]="null">Seleccione un tipo</option>
+            <option *ngFor="let t of tiposCurso" [ngValue]="t.idTipoCurso">{{ t.nombre }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Aula</label>
+          <select class="form-select" formControlName="idAula">
+            <option [ngValue]="null">Sin asignar</option>
+            <option *ngFor="let a of aulas" [ngValue]="a.idAula">{{ a.nombre }} (Capacidad: {{ a.capacidad }})</option>
+          </select>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+          <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

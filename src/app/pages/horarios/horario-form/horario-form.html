@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white"><h3>{{ id ? 'Editar' : 'Nuevo' }} Horario</h3></div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label class="form-label">Curso</label>
+          <select class="form-select" formControlName="idCurso">
+            <option *ngFor="let c of cursos" [ngValue]="c.idCurso">{{ c.nombre }}</option>
+          </select>
+        </div>
+        <div class="mb-3"><label class="form-label">Día</label><input type="text" class="form-control" formControlName="dia" placeholder="Ej: Lunes"></div>
+        <div class="mb-3"><label class="form-label">Hora Inicio</label><input type="time" class="form-control" formControlName="horaInicio"></div>
+        <div class="mb-3"><label class="form-label">Hora Fin</label><input type="time" class="form-control" formControlName="horaFin"></div>
+        <button type="submit" class="btn btn-success me-2" [disabled]="form.invalid">Guardar</button>
+        <button type="button" class="btn btn-secondary" (click)="cerrar()">Cerrar</button>
+      </form>
+    </div>
+  </div>
+</div>

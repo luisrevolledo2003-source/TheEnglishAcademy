@@ -1,0 +1,65 @@
+import { Routes } from '@angular/router';
+import { EstudianteListComponent } from './pages/estudiantes/estudiante-list/estudiante-list';
+import { EstudianteFormComponent } from './pages/estudiantes/estudiante-form/estudiante-form';
+import { NivelListComponent } from './pages/niveles/nivel-list/nivel-list';
+import { NivelFormComponent } from './pages/niveles/nivel-form/nivel-form';
+import { CursoListComponent } from './pages/cursos/curso-list/curso-list';
+import { CursoFormComponent } from './pages/cursos/curso-form/curso-form';
+import { DocenteListComponent } from './pages/docentes/docente-list/docente-list';
+import { DocenteFormComponent } from './pages/docentes/docente-form/docente-form';
+import { MatriculaListComponent } from './pages/matriculas/matricula-list/matricula-list';
+import { MatriculaFormComponent } from './pages/matriculas/matricula-form/matricula-form';
+import { EvaluacionListComponent } from './pages/evaluaciones/evaluacion-list/evaluacion-list';
+import { EvaluacionFormComponent } from './pages/evaluaciones/evaluacion-form/evaluacion-form';
+import { PagoListComponent } from './pages/pagos/pago-list/pago-list';
+import { PagoFormComponent } from './pages/pagos/pago-form/pago-form';
+import { HorarioListComponent } from './pages/horarios/horario-list/horario-list';
+import { HorarioFormComponent } from './pages/horarios/horario-form/horario-form';
+import { AsistenciaListComponent } from './pages/asistencias/asistencia-list/asistencia-list';
+import { AsistenciaFormComponent } from './pages/asistencias/asistencia-form/asistencia-form';
+import { AulaListComponent } from './pages/aulas/aula-list/aula-list';
+import { AulaFormComponent } from './pages/aulas/aula-form/aula-form';
+import { MetodoPagoListComponent } from './pages/metodos-pago/metodo-pago-list/metodo-pago-list';
+import { MetodoPagoFormComponent } from './pages/metodos-pago/metodo-pago-form/metodo-pago-form';
+import { TipoCursoListComponent } from './pages/tipos-curso/tipo-curso-list/tipo-curso-list';
+import { TipoCursoFormComponent } from './pages/tipos-curso/tipo-curso-form/tipo-curso-form';
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'estudiantes', pathMatch: 'full' },
+  { path: 'estudiantes', component: EstudianteListComponent },
+  { path: 'estudiantes/nuevo', component: EstudianteFormComponent },
+  { path: 'estudiantes/editar/:id', component: EstudianteFormComponent },
+  { path: 'niveles', component: NivelListComponent },
+  { path: 'niveles/nuevo', component: NivelFormComponent },
+  { path: 'niveles/editar/:id', component: NivelFormComponent },
+  { path: 'cursos', component: CursoListComponent },
+  { path: 'cursos/nuevo', component: CursoFormComponent },
+  { path: 'cursos/editar/:id', component: CursoFormComponent },
+  { path: 'docentes', component: DocenteListComponent },
+  { path: 'docentes/nuevo', component: DocenteFormComponent },
+  { path: 'docentes/editar/:id', component: DocenteFormComponent },
+  { path: 'matriculas', component: MatriculaListComponent },
+  { path: 'matriculas/nuevo', component: MatriculaFormComponent },
+  { path: 'matriculas/editar/:id', component: MatriculaFormComponent },
+  { path: 'evaluaciones', component: EvaluacionListComponent },
+  { path: 'evaluaciones/nuevo', component: EvaluacionFormComponent },
+  { path: 'evaluaciones/editar/:id', component: EvaluacionFormComponent },
+  { path: 'pagos', component: PagoListComponent },
+  { path: 'pagos/nuevo', component: PagoFormComponent },
+  { path: 'pagos/editar/:id', component: PagoFormComponent },
+  { path: 'horarios', component: HorarioListComponent },
+  { path: 'horarios/nuevo', component: HorarioFormComponent },
+  { path: 'horarios/editar/:id', component: HorarioFormComponent },
+  { path: 'asistencias', component: AsistenciaListComponent },
+  { path: 'asistencias/nuevo', component: AsistenciaFormComponent },
+  { path: 'asistencias/editar/:id', component: AsistenciaFormComponent },
+  { path: 'aulas', component: AulaListComponent },
+  { path: 'aulas/nuevo', component: AulaFormComponent },
+  { path: 'aulas/editar/:id', component: AulaFormComponent },
+  { path: 'metodos-pago', component: MetodoPagoListComponent },
+  { path: 'metodos-pago/nuevo', component: MetodoPagoFormComponent },
+  { path: 'metodos-pago/editar/:id', component: MetodoPagoFormComponent },
+  { path: 'tipos-curso', component: TipoCursoListComponent },
+  { path: 'tipos-curso/nuevo', component: TipoCursoFormComponent },
+  { path: 'tipos-curso/editar/:id', component: TipoCursoFormComponent }
+];

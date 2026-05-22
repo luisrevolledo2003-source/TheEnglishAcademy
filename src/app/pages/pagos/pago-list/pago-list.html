@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Pagos</h2>
+    <a routerLink="/pagos/nuevo" class="btn btn-primary">+ Nuevo</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr><th>ID</th><th>Estudiante</th><th>Monto</th><th>Fecha</th><th>Método</th><th>Estado</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of pagos">
+        <td>{{ p.idPago }}</td>
+        <td>{{ p.estudiante?.nombre }} {{ p.estudiante?.apellido }}</td>
+        <td>{{ p.monto | currency }}</td>
+        <td>{{ p.fechaPago | date }}</td>
+        <td>{{ p.metodoPago?.nombre }}</td>
+        <td>{{ p.estadoTransaccion }}</td>
+        <td>
+          <a [routerLink]="['/pagos/editar', p.idPago]" class="btn btn-sm btn-warning me-2">Editar</a>
+          <button (click)="delete(p.idPago!)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
